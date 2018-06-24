@@ -1,0 +1,11 @@
+# Build
+build/
+dist/
+
+# Qt Creator
+*.files
+*.includes
+*.config
+*.creator
+*.creator.user*
+*.autosave
