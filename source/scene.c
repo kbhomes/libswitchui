@@ -1,5 +1,5 @@
-#include "scene.h"
-#include "ui.h"
+#include "switchui/scene.h"
+#include "switchui/ui.h"
 
 #include <SDL2/SDL2_gfxPrimitives.h>
 

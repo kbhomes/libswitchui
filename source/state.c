@@ -1,4 +1,4 @@
-#include "state.h"
+#include "switchui/state.h"
 
 SUIState *sui_state_push(SUIState *top, void *state) {
   SUIState *pushed = malloc(sizeof(SUIState));

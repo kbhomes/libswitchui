@@ -1,4 +1,4 @@
-#include "input.h"
+#include "switchui/input.h"
 
 SUIInput input;
 

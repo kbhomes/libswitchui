@@ -1,5 +1,5 @@
-#include "element.h"
-#include "ui.h"
+#include "switchui/element.h"
+#include "switchui/ui.h"
 
 void sui_element_init(SUIElement *element) {
   element->updater = NULL;

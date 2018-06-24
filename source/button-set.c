@@ -1,5 +1,5 @@
-#include "button-set.h"
-#include "ui.h"
+#include "switchui/button-set.h"
+#include "switchui/ui.h"
 
 static int next_index(SUIButtonSet *buttonSet, int index, int delta) {
   if (buttonSet->wrap) {

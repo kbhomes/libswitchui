@@ -1,4 +1,4 @@
-#include "ui.h"
+#include "switchui/ui.h"
 
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>

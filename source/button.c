@@ -1,5 +1,5 @@
-#include "button.h"
-#include "ui.h"
+#include "switchui/button.h"
+#include "switchui/ui.h"
 
 #include <SDL2/SDL2_gfxPrimitives.h>
 #include <math.h>

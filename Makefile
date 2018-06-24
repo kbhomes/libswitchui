@@ -19,7 +19,7 @@ BUILD		:=	build
 DIST		:=	dist
 SOURCES		:=	source
 DATA		:=	data
-INCLUDES	:=	include/switchui
+INCLUDES	:=	include
 
 #---------------------------------------------------------------------------------
 # options for code generation

@@ -1,5 +1,5 @@
-#include "text.h"
-#include "ui.h"
+#include "switchui/text.h"
+#include "switchui/ui.h"
 
 int sui_text_ascent(TTF_Font *font) {
   return TTF_FontAscent(font);

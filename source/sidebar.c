@@ -1,4 +1,4 @@
-#include "sidebar.h"
+#include "switchui/sidebar.h"
 
 static void sidebar_divider_renderer(SUIElement *element) {
   hlineColor(ui.renderer,
