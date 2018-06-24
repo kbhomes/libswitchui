@@ -26,7 +26,7 @@ static void sidebar_scene_init(SUISidebar *sidebar) {
   sidebar->scene.padded.x = SUI_MARGIN_SIDE;
   sidebar->scene.padded.y = SUI_MARGIN_TOP + SUI_MARGIN_SIDE + 1;
   sidebar->scene.padded.w = SUI_SIDEBAR_WIDTH - 2*SUI_MARGIN_SIDE;
-  sidebar->scene.padded.h = ui.width - SUI_MARGIN_TOP - SUI_MARGIN_BOTTOM - 2*SUI_MARGIN_SIDE - 2;
+  sidebar->scene.padded.h = ui.height - SUI_MARGIN_TOP - SUI_MARGIN_BOTTOM - 2*SUI_MARGIN_SIDE - 2;
 }
 
 void sui_sidebar_init(SUISidebar *sidebar, int count, ...) {
@@ -114,10 +114,16 @@ int sui_sidebar_update(SUISidebar *sidebar, SUIInput *input) {
   sui_scene_update(&sidebar->scene, input);
 
   // Update the menu item buttons from the input
-  SUIButton *clicked = sui_button_set_update(&sidebar->buttonSet, input, NULL);
+  SUIButton *clicked, *focused;
+  clicked = sui_button_set_update(&sidebar->buttonSet, input, &focused);
 
   if (clicked) {
     return (int)clicked->user;
+  }
+
+  if (focused) {
+    sui_scene_scroll_to_element(&sidebar->scene, focused);
+    return (int)focused->user;
   }
 
   return -1;

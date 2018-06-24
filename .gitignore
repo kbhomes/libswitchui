@@ -1,3 +1,10 @@
+# libnx
+*.pfs0
+*.elf
+*.nacp
+*.nso
+*.nro
+
 # Build
 build/
 dist/

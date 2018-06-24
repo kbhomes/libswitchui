@@ -10,6 +10,8 @@
 #include "button_b_png.h"
 
 static int shared_fonts_init() {
+  plInitialize();
+
   Result rc = plGetSharedFontByType(&ui.fontData, PlSharedFontType_Standard);
   if (R_FAILED(rc)) {
     fprintf(stderr, "[GUI] Could not load Switch shared font\n");
@@ -34,6 +36,8 @@ static void shared_fonts_cleanup() {
   if (ui.fontNormal) { TTF_CloseFont(ui.fontNormal); }
   if (ui.fontHeading) { TTF_CloseFont(ui.fontHeading); }
   if (ui.fontMassive) { TTF_CloseFont(ui.fontMassive); }
+
+  plExit();
 }
 
 static int toolbar_textures_init() {
@@ -116,6 +120,15 @@ void sui_cleanup() {
   TTF_Quit();
   IMG_Quit();
   SDL_Quit();
+}
+
+void sui_render_start() {
+  SDL_SetRenderDrawColor(ui.renderer, 0xeb, 0xeb, 0xeb, 0xff);
+  SDL_RenderClear(ui.renderer);
+}
+
+void sui_render_end() {
+  SDL_RenderPresent(ui.renderer);
 }
 
 SDL_Texture *sui_load_png(const void *data, size_t size) {

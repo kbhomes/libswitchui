@@ -27,7 +27,7 @@ Ensure that `$DEVKITPRO` is appropriately set in the environment.
 - Run `make`
 - Run `make dist`
 - Copy `dist/include` and `dist/lib` to some location and add appropriate compiler and linker flags
-    - For example: `-Ipath/to/include -Lpath/to/lib -lswitchui -lsdl2 -lsdl2_gfx -lsdl2_ttf -lsdl2_image -lpng -lfreetype -lbz2 -lz -lnx`
+    - For example: `-Ipath/to/include -Lpath/to/lib -lswitchui -lsdl2 -lsdl2_gfx -lsdl2_ttf -lsdl2_image -ljpeg -lpng -lfreetype -lbz2 -lz -lm -lnx`
 
 ## Authors
 

@@ -89,7 +89,8 @@ void sui_scene_render(SUIScene *scene) {
   }
 
 //  // DEBUG
-//  rectangleColor(ui.renderer, scene->clip.x, scene->clip.y, scene->clip.x + scene->clip.width, scene->clip.y + scene->clip.height, RGBA8(255, 0, 0, 255));
+//  rectangleColor(ui.renderer, scene->clip.x, scene->clip.y, scene->clip.x + scene->clip.w, scene->clip.y + scene->clip.h, RGBA8(255, 0, 0, 255));
+//  rectangleColor(ui.renderer, scene->padded.x, scene->padded.y, scene->padded.x + scene->padded.w, scene->padded.y + scene->padded.h, RGBA8(0, 255, 0, 255));
 }
 
 void sui_scene_scroll_to_element(SUIScene *scene, SUIElement *element) {

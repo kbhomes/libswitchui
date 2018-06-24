@@ -14,8 +14,9 @@
 #define SUI_MARGIN_BETWEEN_TOOLBAR_ICON_TEXT  10
 #define SUI_MARGIN_BETWEEN_TOOLBAR_BUTTONS    44
 
-#define SUI_COLOR_DARK   0xff2d2d2d
-#define SUI_COLOR_LIGHT  0xff6d6d6d
+#define SUI_COLOR_BACKGROUND  0xffebebeb
+#define SUI_COLOR_DARK        0xff2d2d2d
+#define SUI_COLOR_LIGHT       0xff6d6d6d
 
 typedef struct {
   SDL_Window *window;
@@ -44,13 +45,16 @@ enum SUIToolbarAction {
 int sui_init();
 void sui_cleanup();
 
+void sui_render_start();
+void sui_render_end();
+
 /*
  * Draw the actions on the bottom toolbar with the chosen icons and text
  *
  * @param count   number of actions that will be drawn
  * @param ...     list of pairs of action text and ToolbarAction
  *
- * @example `draw_bottom_toolbar(2, "OK", ToolbarActionA, "Back", ToolbarActionB);
+ * @example `draw_bottom_toolbar(2, "OK", SUIToolbarActionA, "Back", SUIToolbarActionB);
  */
 void sui_draw_bottom_toolbar(int count, ...);
 

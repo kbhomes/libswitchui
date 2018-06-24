@@ -51,30 +51,33 @@ void sui_button_render(SUIButton *button) {
 }
 
 void sui_button_renderer_content_default(SUIButton *button) {
+  SUIRect clip = sui_element_get_clip(button);
+
   // Simply draw the button text in the center of the button
   uint32_t textColor = button->focused ? SUI_BUTTON_FOCUSED_TEXT_COLOR : SUI_BUTTON_TEXT_COLOR;
-  sui_draw_text(ui.fontNormal,
-                button->text,
-                button->e.bounds.x + button->e.bounds.w/2,
-                button->e.bounds.y + button->e.bounds.h/2,
-                textColor,
-                true,
-                -1);
+  sui_draw_clipped_text(ui.fontNormal,
+                        button->text,
+                        button->e.bounds.x + button->e.bounds.w/2,
+                        button->e.bounds.y + button->e.bounds.h/2,
+                        &clip,
+                        textColor,
+                        true,
+                        -1);
 }
 
 void sui_button_renderer_content_menu(SUIButton *button) {
+  SUIRect clip = sui_element_get_clip(button);
   uint32_t textColor;
 
   if (button->focused) {
     textColor = SUI_BUTTON_FOCUSED_TEXT_COLOR;
 
-    for (int i = 0; i < SUI_BUTTON_MENU_FOCUSED_LINE_WIDTH; i++) {
-      vlineColor(ui.renderer,
-                 button->e.bounds.x + SUI_BUTTON_MENU_FOCUSED_PADDING + i + 1,
-                 button->e.bounds.y + SUI_BUTTON_MENU_FOCUSED_PADDING,
-                 button->e.bounds.y + button->e.bounds.h - SUI_BUTTON_MENU_FOCUSED_PADDING,
-                 SUI_BUTTON_FOCUSED_TEXT_COLOR);
-    }
+    sui_draw_clipped_box(button->e.bounds.x + SUI_BUTTON_MENU_FOCUSED_PADDING,
+                         button->e.bounds.y + SUI_BUTTON_MENU_FOCUSED_PADDING,
+                         SUI_BUTTON_MENU_FOCUSED_LINE_WIDTH,
+                         button->e.bounds.h - 2*SUI_BUTTON_MENU_FOCUSED_PADDING,
+                         &clip,
+                         SUI_BUTTON_FOCUSED_TEXT_COLOR);
   }
   else {
     textColor = SUI_BUTTON_TEXT_COLOR;
@@ -82,12 +85,12 @@ void sui_button_renderer_content_menu(SUIButton *button) {
 
   int textWidth, textHeight = sui_text_ascent(ui.fontNormal);
   sui_measure_text(ui.fontNormal, button->text, &textWidth, NULL);
-
-  sui_draw_text(ui.fontNormal,
-                button->text,
-                button->e.bounds.x + 2*SUI_BUTTON_MENU_FOCUSED_PADDING + SUI_BUTTON_MENU_FOCUSED_LINE_WIDTH,
-                button->e.bounds.y + button->e.bounds.h/2 - textHeight/2,
-                textColor,
-                false,
-                -1);
+  sui_draw_clipped_text(ui.fontNormal,
+                        button->text,
+                        button->e.bounds.x + 2*SUI_BUTTON_MENU_FOCUSED_PADDING + SUI_BUTTON_MENU_FOCUSED_LINE_WIDTH,
+                        button->e.bounds.y + button->e.bounds.h/2 - textHeight/2,
+                        &clip,
+                        textColor,
+                        false,
+                        -1);
 }
