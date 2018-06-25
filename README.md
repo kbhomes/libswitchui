@@ -28,6 +28,12 @@ Ensure that `$DEVKITPRO` is appropriately set in the environment.
 - Run `make dist`
 - Copy `dist/include` and `dist/lib` to some location and add appropriate compiler and linker flags
     - For example: `-Ipath/to/include -Lpath/to/lib -lswitchui -lsdl2 -lsdl2_gfx -lsdl2_ttf -lsdl2_image -ljpeg -lpng -lfreetype -lbz2 -lz -lm -lnx`
+    
+### Examples
+
+After building the library using `make` and `make dist`, you can go to the `examples` directory and run `make` there to build example applications. The examples are works-in-progress. 
+
+- `settings`: this example partially emulates the Nintendo Switch system settings applet
 
 ## Authors
 
