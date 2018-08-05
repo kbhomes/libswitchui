@@ -36,7 +36,7 @@ typedef struct {
   int buttonBWidth, buttonBHeight;
 } SUI;
 
-SUI ui;
+extern SUI ui;
 
 enum SUIToolbarAction {
   SUIToolbarActionA, SUIToolbarActionB

@@ -9,6 +9,8 @@
 #include "button_a_png.h"
 #include "button_b_png.h"
 
+SUI ui;
+
 static int shared_fonts_init() {
   plInitialize();
 
